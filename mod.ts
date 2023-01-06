@@ -1,7 +1,7 @@
 #!/usr/bin/env deno
 
 const args = Array.from(Deno.args);
-console.log(args);
+
 if (args[0] === "init") {
   args.shift();
   await run("deno", "run", "-Ar", "https://deno.land/x/lume/init.ts", ...args);
