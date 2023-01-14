@@ -10,6 +10,7 @@ if (args[0] === "init") {
     "deno",
     "install",
     "--allow-run",
+    "--allow-env",
     "--name",
     "lume",
     "--reload",

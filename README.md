@@ -6,7 +6,7 @@ Simple script to run Lume easily, without need to type
 ## Install
 
 ```
-deno install --allow-run --name lume --force --reload https://deno.land/x/lume_cli/mod.ts
+deno install --allow-run --allow-env --name lume --force --reload https://deno.land/x/lume_cli/mod.ts
 ```
 
 ## Usage
