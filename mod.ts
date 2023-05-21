@@ -4,13 +4,13 @@ const args = Array.from(Deno.args);
 
 if (args[0] === "init") {
   args.shift();
-  await run("deno", "run", "-Ar", "https://deno.land/x/lume/init.ts", ...args);
+  await run("run", "-Ar", "https://deno.land/x/lume/init.ts", ...args);
 } else if (args[0] === "upgrade-cli") {
   await run(
-    "deno",
     "install",
     "--allow-run",
     "--allow-env",
+    "--allow-read",
     "--name",
     "lume",
     "--reload",
@@ -18,10 +18,17 @@ if (args[0] === "init") {
     "https://deno.land/x/lume_cli/mod.ts",
   );
 } else {
-  await run("deno", "task", "lume", ...args);
+  await run("task", "lume", ...args);
 }
 
-async function run(...cmd: string[]) {
-  const process = Deno.run({ cmd });
-  return await process.status();
+async function run(...args: string[]) {
+  // TODO: use Deno.execPath() in the future (requires --allow-read)
+  const command = new Deno.Command("deno", {
+    args: args,
+    stdin: "inherit",
+    stdout: "inherit",
+    stderr: "inherit",
+  });
+
+  await command.output();
 }
