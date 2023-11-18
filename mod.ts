@@ -17,6 +17,8 @@ if (args[0] === "init") {
     "--force",
     "https://deno.land/x/lume_cli/mod.ts",
   );
+} else if (args[0] === "serve" || args[0] === "build") {
+  await run("task", ...args);
 } else {
   await run("task", "lume", ...args);
 }
