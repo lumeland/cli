@@ -22,8 +22,26 @@ if (args[0] === "init") {
 }
 
 async function run(...args: string[]) {
-  // TODO: use Deno.execPath() in the future (requires --allow-read)
-  const command = new Deno.Command("deno", {
+  if (hasFlag("--drafts", args)) {
+    Deno.env.set("LUME_SHOW_DRAFTS", "true");
+  }
+  if (hasFlag("--debug", args)) {
+    Deno.env.set("LUME_LOG_LEVEL", "DEBUG");
+  }
+  if (hasFlag("--info", args)) {
+    Deno.env.set("LUME_LOG_LEVEL", "INFO");
+  }
+  if (hasFlag("--warning", args)) {
+    Deno.env.set("LUME_LOG_LEVEL", "WARNING");
+  }
+  if (hasFlag("--error", args)) {
+    Deno.env.set("LUME_LOG_LEVEL", "ERROR");
+  }
+  if (hasFlag("--critical", args)) {
+    Deno.env.set("LUME_LOG_LEVEL", "CRITICAL");
+  }
+
+  const command = new Deno.Command(Deno.execPath(), {
     args: args,
     stdin: "inherit",
     stdout: "inherit",
@@ -31,4 +49,12 @@ async function run(...args: string[]) {
   });
 
   await command.output();
+}
+
+function hasFlag(flag: string, args: string[]): boolean {
+  if (args.includes(flag)) {
+    args.splice(args.indexOf(flag), 1);
+    return true;
+  }
+  return false;
 }
