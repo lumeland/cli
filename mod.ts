@@ -13,8 +13,8 @@ if (args[0] === "init") {
     "--allow-read",
     "--name",
     "lume",
-    "--reload",
     "--force",
+    "--reload",
     "https://deno.land/x/lume_cli/mod.ts",
   );
 } else if (args[0] === "serve" || args[0] === "build") {
