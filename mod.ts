@@ -25,22 +25,25 @@ if (args[0] === "init") {
 
 async function run(...args: string[]) {
   if (hasFlag("--drafts", args)) {
-    Deno.env.set("LUME_SHOW_DRAFTS", "true");
+    Deno.env.set("LUME_DRAFTS", "true");
   }
   if (hasFlag("--debug", args)) {
-    Deno.env.set("LUME_LOG_LEVEL", "DEBUG");
+    Deno.env.set("LUME_LOGS", "DEBUG");
   }
   if (hasFlag("--info", args)) {
-    Deno.env.set("LUME_LOG_LEVEL", "INFO");
+    Deno.env.set("LUME_LOGS", "INFO");
   }
   if (hasFlag("--warning", args)) {
-    Deno.env.set("LUME_LOG_LEVEL", "WARNING");
+    Deno.env.set("LUME_LOGS", "WARNING");
   }
   if (hasFlag("--error", args)) {
-    Deno.env.set("LUME_LOG_LEVEL", "ERROR");
+    Deno.env.set("LUME_LOGS", "ERROR");
   }
   if (hasFlag("--critical", args)) {
-    Deno.env.set("LUME_LOG_LEVEL", "CRITICAL");
+    Deno.env.set("LUME_LOGS", "CRITICAL");
+  }
+  if (hasFlag("--no-cache", args)) {
+    Deno.env.set("LUME_NOCACHE", "true");
   }
 
   const command = new Deno.Command(Deno.execPath(), {

@@ -6,12 +6,13 @@ project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [2.0.0] - Unreleased
 ### Added
-- New option `--drafts` to set the env variable `LUME_SHOW_DRAFTS=true`.
-- New option `--debug` to set the env variable `LUME_LOG_LEVEL=DEBUG`.
-- New option `--info` to set the env variable `LUME_LOG_LEVEL=INFO`.
-- New option `--warning` to set the env variable `LUME_LOG_LEVEL=WARNING`.
-- New option `--error` to set the env variable `LUME_LOG_LEVEL=ERROR`.
-- New option `--critical` to set the env variable `LUME_LOG_LEVEL=CRITICAL`.
+- New option `--drafts` to set the env variable `LUME_DRAFTS=true`.
+- New option `--debug` to set the env variable `LUME_LOGS=DEBUG`.
+- New option `--info` to set the env variable `LUME_LOGS=INFO`.
+- New option `--warning` to set the env variable `LUME_LOGS=WARNING`.
+- New option `--error` to set the env variable `LUME_LOGS=ERROR`.
+- New option `--critical` to set the env variable `LUME_LOGS=CRITICAL`.
+- New option `--no-cache` to set the env variable `LUME_NOCACHE=true`.
 
 ### Changed
 - Use `Deno.execPath()` to run the Deno command.
