@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.1.0] - 2024-04-02
+### Changed
+- `lume init` command runs the new `https://lume.land/init.ts` script.
+
 ## [2.0.0] - 2023-12-08
 ### Added
 - New option `--drafts` to set the env variable `LUME_DRAFTS=true`.
@@ -32,6 +36,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.0.0] - 2023-01-06
 First version
 
+[2.1.0]: https://github.com/lumeland/cli/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/lumeland/cli/compare/v1.0.3...v2.0.0
 [1.0.3]: https://github.com/lumeland/cli/compare/v1.0.2...v1.0.3
 [1.0.2]: https://github.com/lumeland/cli/compare/v1.0.1...v1.0.2

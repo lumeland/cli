@@ -4,7 +4,7 @@ const args = Array.from(Deno.args);
 
 if (args[0] === "init") {
   args.shift();
-  await run("run", "-Ar", "https://deno.land/x/lume/init.ts", ...args);
+  await run("run", "-A", "https://lume.land/init.ts", ...args);
 } else if (args[0] === "upgrade-cli") {
   await run(
     "install",
