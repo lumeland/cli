@@ -15,6 +15,7 @@ if (args[0] === "init") {
     "lume",
     "--force",
     "--reload",
+    "--global",
     "https://deno.land/x/lume_cli/mod.ts",
   );
 } else if (args[0] === "serve" || args[0] === "build") {
