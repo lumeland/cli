@@ -4,9 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this
 project adheres to [Semantic Versioning](http://semver.org/).
 
-## [2.1.1] - Unreleased
+## [2.1.1] - 2024-05-22
 ### Fixed
 - Added the `--global` flag needed for incoming Deno 2.
+- Changed `WARNING` to `WARN`.
+- New option `--warn` as an alias of `--warning`.
 
 ## [2.1.0] - 2024-04-02
 ### Changed
@@ -40,7 +42,7 @@ project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.0.0] - 2023-01-06
 First version
 
-[2.1.1]: https://github.com/lumeland/cli/compare/v2.1.0...HEAD
+[2.1.1]: https://github.com/lumeland/cli/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/lumeland/cli/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/lumeland/cli/compare/v1.0.3...v2.0.0
 [1.0.3]: https://github.com/lumeland/cli/compare/v1.0.2...v1.0.3

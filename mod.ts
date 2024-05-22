@@ -35,7 +35,10 @@ async function run(...args: string[]) {
     Deno.env.set("LUME_LOGS", "INFO");
   }
   if (hasFlag("--warning", args)) {
-    Deno.env.set("LUME_LOGS", "WARNING");
+    Deno.env.set("LUME_LOGS", "WARN");
+  }
+  if (hasFlag("--warn", args)) {
+    Deno.env.set("LUME_LOGS", "WARN");
   }
   if (hasFlag("--error", args)) {
     Deno.env.set("LUME_LOGS", "ERROR");
