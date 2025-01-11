@@ -1,5 +1,7 @@
 #!/usr/bin/env deno
 
+import { toFileUrl } from "jsr:@std/path/to-file-url";
+
 const args = Array.from(Deno.args);
 
 if (args[0] === "init") {
@@ -20,6 +22,14 @@ if (args[0] === "init") {
   );
 } else if (args[0] === "serve" || args[0] === "build") {
   await run("task", ...args);
+} else if (args[0] === "local") {
+  if (args[1] === "--save") {
+    saveLocal();
+  } else if (args[1] === "--remove") {
+    removeLocal();
+  } else {
+    applyLocal();
+  }
 } else {
   await run("task", "lume", ...args);
 }
@@ -66,4 +76,36 @@ function hasFlag(flag: string, args: string[]): boolean {
     return true;
   }
   return false;
+}
+
+function saveLocal() {
+  const local = toFileUrl(Deno.cwd());
+  if (!local.pathname.endsWith("/")) {
+    local.pathname += "/";
+  }
+
+  localStorage.setItem("local.lume", local.href);
+  console.log(`Local path set to ${local.href}`);
+}
+
+function removeLocal() {
+  localStorage.removeItem("local.lume");
+  console.log(`Local path removed`);
+}
+
+function applyLocal() {
+  const local = localStorage.getItem("local.lume");
+
+  if (!local) {
+    console.error(
+      "No Lume path saved. Use `lume local --save` inside your Lume repo.",
+    );
+    return;
+  }
+
+  const content = Deno.readTextFileSync("deno.json");
+  const config = JSON.parse(content);
+  config.imports["lume/"] = local;
+  Deno.writeTextFileSync("deno.json", JSON.stringify(config, null, 2));
+  console.log(`Local path applied to deno.json`);
 }

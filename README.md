@@ -15,5 +15,7 @@ deno install --allow-run --allow-env --allow-read --name lume --force --reload h
   `deno run -Ar https://deno.land/x/lume/init.ts` to initialize Lume in the
   current directory.
 - `lume upgrade-cli` will upgrade this script to the latest version.
+- `lume local` will map Lume to a local folder. Useful for debugging and
+  development.
 - Any other command is delegated to `deno task lume [...args]`. For example,
   `lume -s` will run `deno task lume -s`.
