@@ -13,6 +13,7 @@ if (args[0] === "init") {
     "--allow-run",
     "--allow-env",
     "--allow-read",
+    "--allow-write=deno.json",
     "--name",
     "lume",
     "--force",
