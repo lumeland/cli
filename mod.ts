@@ -1,6 +1,6 @@
 #!/usr/bin/env deno
 
-import { toFileUrl } from "jsr:@std/path/to-file-url";
+import { toFileUrl } from "jsr:@std/path@1.1.5/to-file-url";
 
 const args = Array.from(Deno.args);
 
